@@ -1,6 +1,4 @@
-# Let's create a README.md content based on the user's Vivado setup steps for Cora Z7-10 Ethernet configuration
-
-readme_content = """# Cora Z7-10 Ethernet (ENET0) Setup in Vivado
+# Cora Z7-10 Ethernet (ENET0) Setup in Vivado
 
 This guide describes how to configure the **Cora Z7-10** board in Vivado for Ethernet communication using the Zynq-7000 Processing System (PS) **ENET0** interface.
 
@@ -37,6 +35,8 @@ Double-click the **ZYNQ7 Processing System** block to open the configuration men
 #### 4.1 PS-PL Configuration
 - Navigate to **PS-PL Configuration → General**.
 - **Enable Clock Resets** → **Deactivate**.
+- Go to **AXI Non-Secure Enablement → GP Master AXI Interface**.
+  - **M AXI GP0 Interface** → **Deactivate**.
 
 #### 4.2 Enable Ethernet 0
 - Go to **Peripheral I/O Pins**.
@@ -64,12 +64,3 @@ Once ENET0 is enabled and MIO pins are assigned, export the hardware to **Vitis*
 ## Notes
 - This configuration uses the Processing System's Ethernet directly; no PL logic is required.
 - Ensure your Cora Z7-10 board files are installed in Vivado for automatic MIO pin mapping.
-
-"""
-
-# Save the README.md
-readme_path = "/mnt/data/README.md"
-with open(readme_path, "w") as f:
-    f.write(readme_content)
-
-readme_path
